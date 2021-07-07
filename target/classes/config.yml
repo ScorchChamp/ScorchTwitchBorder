@@ -1,0 +1,7 @@
+
+
+Authorization: PASTE YOUR OAUTH TOKEN HERE
+Client-Id: PASTE YOUR CLIENT ID HERE
+current-border-size: 100
+streamer_names:
+  - <YOUR STREAMERS HERE (OR USE /ADDSTREAMER)>

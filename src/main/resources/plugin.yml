@@ -1,0 +1,24 @@
+name: Twitch_Follower_Border
+main: com.scorchchamp.twitchfollowerborder.TwitchFollowerBorder
+version: 1.0.5
+
+author: ScorchChamp
+commands:
+   updateBorder:
+      description: Update border to new amount of followers
+      usage: /updateBorder
+      permission: twitchfollowerborder.updateBorder
+      permission-message: You don't have <permission>
+   addCreator:
+      description: Add creator to server
+      usage: /addCreator
+      permission: twitchfollowerborder.addCreator
+      permission-message: You don't have <permission>
+   removeCreator:
+      description: Remove creator from server
+      usage: /removeCreator
+      permission: twitchfollowerborder.removeCreator
+      permission-message: You don't have <permission>
+   getCreators:
+      description: Get all creators on server
+      usage: /getCreators
