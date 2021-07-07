@@ -19,6 +19,7 @@ public final class TwitchFollowerBorder extends JavaPlugin {
 		this.getCommand("getCreators").setExecutor(new GetCreatorsCommandExecutor(this));
 
 		BukkitScheduler scheduler = getServer().getScheduler();
+		final int update_delay = Integer.parseInt(plugin.getConfig().getString("twitch-update-delay-ticks"));
 		scheduler.scheduleSyncRepeatingTask(this, new Runnable() {
 			public void run() {
 				ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
@@ -26,10 +27,10 @@ public final class TwitchFollowerBorder extends JavaPlugin {
 				for (World w : Bukkit.getServer().getWorlds()) {
 					WorldBorder overworldBorder = w.getWorldBorder();
 					int border_size = Integer.parseInt(plugin.getConfig().getString("current-border-size"));
-					overworldBorder.setSize(border_size, 10);
+					overworldBorder.setSize(border_size, update_delay / 20);
 				}
 			}
-		}, 0L, 200L);
+		}, 0L, update_delay);
 	}
 
 	@Override

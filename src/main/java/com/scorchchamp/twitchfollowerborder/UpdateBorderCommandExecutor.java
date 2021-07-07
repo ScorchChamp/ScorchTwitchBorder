@@ -26,13 +26,20 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 		Runnable runUpdateBorder = new Runnable() {
 			public void run() {
+				if (sender instanceof Player)
+					sender.sendMessage("[ScorchBorder] Fetching data...");
 				int total_followers = 0;
 				List<String> streamers = plugin.getConfig().getStringList("streamer_names");
 				for (String s : streamers) {
-					total_followers += Integer.parseInt(getStreamerFollows(s));
+					int s_followers = Integer.parseInt(getStreamerFollows(s));
+					total_followers += s_followers;
+					if (sender instanceof Player)
+						sender.sendMessage("[ScorchBorder] " + s + " has " + s_followers + " followers");
 				}
 				int last_border_size = Integer.parseInt(plugin.getConfig().getString("current-border-size"));
 				int new_border_size = total_followers / 4;
+				if (sender instanceof Player)
+					sender.sendMessage("[ScorchBorder] BorderSize: " + new_border_size);
 				if (last_border_size != new_border_size) {
 					plugin.getConfig().set("current-border-size", new_border_size);
 					plugin.saveConfig();
