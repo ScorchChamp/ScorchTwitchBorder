@@ -19,6 +19,7 @@ To start setting up the plugin, please make sure you have a valid OAUTH token an
 2. Start the server up
 3. Edit */plugins/Twitch_Follower_Border/config.yml* with any text editor
 4. Insert your Authorization (OAUTH) token and your Client-id in their designated spots (see code below)
+6. Tweak twitch-update-delay-ticks to make it less heavy on your API (doesn't affect performance)
 5. Reload your server
 
 
@@ -26,6 +27,7 @@ To start setting up the plugin, please make sure you have a valid OAUTH token an
 Authorization: Bearer abcdefghijklmnopqrstuvwxyz
 Client-Id: 0123456789101112131415
 current-border-size: 0
+twitch-update-delay-ticks: 200
 streamer_names:
   - ScorchChamp
   - aestheicpixels
