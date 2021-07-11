@@ -1,4 +1,31 @@
-# ScorchTwitchBorder
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/ScorchChamp/ScorchTwitchBorder">
+    <img src="logo.jpg" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">ScorchTwitchBorder Twitch Bot</h3>
+
+  <p align="center">
+    Twitch Follower Border
+    <br />
+    <a href="https://github.com/ScorchChamp/ScorchTwitchBorder/releases/">Releases »</a>
+    <br />
+    <a href="https://github.com/ScorchChamp/ScorchTwitchBorder/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/ScorchChamp/ScorchTwitchBorder/issues">Request Feature</a>
+  </p>
+</p>
+
+
 
 ## Why use ScorchTwitchBorder?
 -----------------------------------
@@ -72,3 +99,24 @@ streamer_names:
 
 
 
+
+<!-- CONTACT -->
+## Contact
+
+ScorchChamp - scorchchamp@gmail.com
+
+Project Link: [https://github.com/ScorchChamp/ScorchTwitchBorder](https://github.com/ScorchChamp/ScorchTwitchBorder)
+
+[contributors-shield]: https://img.shields.io/github/contributors/ScorchChamp/ScorchTwitchBorder.svg?style=for-the-badge
+[contributors-url]: https://github.com/ScorchChamp/ScorchTwitchBorder/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ScorchChamp/ScorchTwitchBorder.svg?style=for-the-badge
+[forks-url]: https://github.com/ScorchChamp/ScorchTwitchBorder/network/members
+[stars-shield]: https://img.shields.io/github/stars/ScorchChamp/ScorchTwitchBorder.svg?style=for-the-badge
+[stars-url]: https://github.com/ScorchChamp/ScorchTwitchBorder/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ScorchChamp/ScorchTwitchBorder.svg?style=for-the-badge
+[issues-url]: https://github.com/ScorchChamp/ScorchTwitchBorder/issues
+[license-shield]: https://img.shields.io/github/license/ScorchChamp/ScorchTwitchBorder.svg?style=for-the-badge
+[license-url]: https://github.com/ScorchChamp/ScorchTwitchBorder/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/lars-cornelissen-56504520b/
+[youtube-url]: https://www.youtube.com/channel/UCYpqUStHIE9CmgDPkAmN4Sg
