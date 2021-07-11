@@ -28,7 +28,7 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 			public void run() {
 				if (sender instanceof Player)
 					sender.sendMessage("[ScorchBorder] Fetching data...");
-				int total_followers = 0;
+				int total_followers = -1;
 				List<String> streamers = plugin.getConfig().getStringList("streamer_names");
 				for (String s : streamers) {
 					int s_followers = Integer.parseInt(getStreamerFollows(s));
@@ -36,16 +36,23 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 					if (sender instanceof Player)
 						sender.sendMessage("[ScorchBorder] " + s + " has " + s_followers + " followers");
 				}
-				int last_border_size = Integer.parseInt(plugin.getConfig().getString("current-border-size"));
-				int new_border_size = total_followers / 4;
-				if (sender instanceof Player)
-					sender.sendMessage("[ScorchBorder] BorderSize: " + new_border_size);
-				if (last_border_size != new_border_size) {
-					plugin.getConfig().set("current-border-size", new_border_size);
-					plugin.saveConfig();
+				if (total_followers >= 0) {
+					int last_border_size = Integer.parseInt(plugin.getConfig().getString("current-border-size"));
+					int new_border_size = total_followers
+							/ Integer.parseInt(plugin.getConfig().getString("followers-per-block"));
+					if (sender instanceof Player)
+						sender.sendMessage("[ScorchBorder] BorderSize: " + new_border_size);
+					if (last_border_size != new_border_size) {
+						plugin.getConfig().set("current-border-size", new_border_size);
+						plugin.saveConfig();
+						for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+							p.sendMessage("[ScorchBorder] New follower count! Added blocks: "
+									+ (new_border_size - last_border_size));
+						}
+					}
+				} else {
 					for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-						p.sendMessage("[ScorchBorder] New follower count! Added blocks: "
-								+ (new_border_size - last_border_size));
+						p.sendMessage("[ScorchBorder] Something went wrong! Please report this!");
 					}
 				}
 
@@ -55,14 +62,16 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 		return true;
 	}
 
-	public void runGetFollowers(CommandSender sender, String[] args) {
+	public boolean runGetFollowers(CommandSender sender, String[] args) {
 		String response;
 		if (args.length > 0) {
 			response = getStreamerFollows(args[0]);
 		} else {
 			response = "Please provide a name";
+			return false;
 		}
 		sender.sendMessage(response);
+		return true;
 	}
 
 	public String getStreamerFollows(String name) {
@@ -78,7 +87,7 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 				streamer_id = "0";
 			}
 		} else {
-			streamer_follows = "0";
+			streamer_follows = "-1";
 		}
 		return streamer_follows;
 
