@@ -57,15 +57,10 @@ current-border-size: 0
 twitch-update-delay-ticks: 200
 streamer_names:
   - ScorchChamp
-  - aestheicpixels
-  - wish_lea
-  - soullesspeach
-  - machowings
   - masonisonline
   - theparanormalgirl
   - randompeep83
   - therelaxedjarl
-  - keatsheimy
 ```
 *(/plugins/Twitch_Follower_Border/config.yml)*
 

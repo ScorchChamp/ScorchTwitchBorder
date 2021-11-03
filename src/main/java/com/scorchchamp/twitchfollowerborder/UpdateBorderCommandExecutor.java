@@ -46,13 +46,15 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 						plugin.getConfig().set("current-border-size", new_border_size);
 						plugin.saveConfig();
 						for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-							p.sendMessage("[ScorchBorder] New follower count! Added blocks: "
-									+ (new_border_size - last_border_size));
+							if (p.hasPermission("twitchfollowerborder.updateBorder"))
+								p.sendMessage("[ScorchBorder] New follower count! Added blocks: "
+										+ (new_border_size - last_border_size));
 						}
 					}
 				} else {
 					for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-						p.sendMessage("[ScorchBorder] Something went wrong! Please report this!");
+						if (p.hasPermission("twitchfollowerborder.updateBorder"))
+							p.sendMessage("[ScorchBorder] Something went wrong! Please report this!");
 					}
 				}
 
@@ -84,10 +86,10 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 				streamer_follows = result.split(":")[1].split(",")[0];
 			} catch (ArrayIndexOutOfBoundsException e) {
 				e.printStackTrace();
-				streamer_id = "0";
+				return "-1";
 			}
 		} else {
-			streamer_follows = "-1";
+			return "-1";
 		}
 		return streamer_follows;
 
@@ -102,7 +104,7 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 			streamer_id = result.split("id\":")[1].split("\"")[1];
 		} catch (ArrayIndexOutOfBoundsException e) {
 			e.printStackTrace();
-			streamer_id = "0";
+			return "0";
 		}
 		return streamer_id;
 	}
@@ -130,8 +132,10 @@ public class UpdateBorderCommandExecutor implements CommandExecutor {
 			http.disconnect();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
+			return "-1";
 		} catch (IOException e) {
 			e.printStackTrace();
+			return "-1";
 		}
 		return result.toString();
 	}
